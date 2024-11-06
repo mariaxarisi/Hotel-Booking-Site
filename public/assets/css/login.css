@@ -1,0 +1,126 @@
+@font-face {
+    font-family: Roboto Regular;
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Roboto Light;
+    src: url(../fonts/Roboto/Roboto-Light.ttf);
+}
+:root{
+    font-size: 16px;
+    --background: whitesmoke;
+    --main_color: #ff8100;
+    --disabled_button: #ffb469;
+    --hover_color: #a45200;
+    --form_background: gainsboro;
+    --form_text: rgb(89, 89, 89);
+}
+html{
+    font-family: Roboto Regular;
+    color: black;
+}
+.d-none{
+    display: none;
+}
+
+/*--------LAYOUT---------*/
+body{
+    margin: 0;
+    padding: 0;
+    
+    display: grid;
+    grid-template-rows: 10vh 85vh 5vh;
+    grid-template-areas: "header" "form" "footer";
+}
+
+header .container{
+    width: 60%;
+    height: 9.5vh;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .gradient{
+    width: 70%;
+    min-width: 800px;
+    height: 0.5vh;
+    margin:  0px auto;
+}
+
+main .form{
+    width: 55%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+main form{
+    width: 70%;
+}
+main form .row{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+main form input[type="submit"]{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 6px;
+    border-radius: 2px;
+}
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*--------STYLES---------*/
+body{
+    background-color: var(--background);
+}
+header{
+    font-size: 0.875rem;
+}
+header a{
+    text-decoration: none;
+    color: var(--main_color);
+}
+header a:hover{
+    color: var(--hover_color);
+}
+header a i{
+    margin-right: 3px;
+}
+header .gradient{
+    background: linear-gradient(to right, var(--background) 5%, rgb(192, 190, 190) 15% 85%, var(--background) 95%);
+}
+
+main .form{
+    background-color: white;
+    font-size: 0.95rem;
+    color: var(--main_color);
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px var(--form_background);
+}
+main form input[type="submit"]{
+    background-color: var(--main_color);
+    color: white;
+    border: none;
+}
+main form input[type="submit"]:hover{
+    background-color: var(--hover_color);
+}
+main form div.error{
+    color: red;
+    font-size: 0.8rem;
+}
+
+footer{
+    background-color: var(--form_background);
+    font-size: 0.5rem;
+    font-family: Roboto Light;
+    border-top: 3px solid gray;
+}
