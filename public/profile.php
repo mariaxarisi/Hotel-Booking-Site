@@ -45,8 +45,8 @@ $bookings = $booking->getBookings($userId);
                     </a>
                 </p>
                 <p>
-                    <a href="profile.php">
-                        <i class="fa-solid fa-user"></i>Profile
+                    <a href="actions/logout.php">
+                        <i class="fa-solid fa-sign-out"></i>LogOut
                     </a>
                 </p>
             </div>

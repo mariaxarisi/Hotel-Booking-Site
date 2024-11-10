@@ -12,13 +12,19 @@ if(strtolower($_SERVER['REQUEST_METHOD']) != 'post'){
 
 //Return to home page if there is a logged in user
 if(empty(User::getCurrentUserId())){
-    header('Location: /project/public/index.php');
+    header('Location: /project/public/login.php');
     return;
 }
 
 //Check if room id is given 
 $roomId = $_REQUEST['room_id'];
 if(empty($roomId)){
+    header('Location: /project/public/index.php');
+    return;
+}
+
+$csrf = $_REQUEST['csrf'];
+if(empty($csrf) || !User::verifyCSRF($csrf)){
     header('Location: /project/public/index.php');
     return;
 }

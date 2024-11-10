@@ -93,9 +93,9 @@ main div.results{
     grid-template-rows: min-content repeat(2, max-content);
 }
 main section.hotel:nth-of-type(1){
-    margin: 4% 0px;
+    padding-top: 4%;
 }
-main section.hotel:nth-of-type(2){
+main section.hotel{
     padding-bottom: 4%;
 }
 main div.hotel_up{

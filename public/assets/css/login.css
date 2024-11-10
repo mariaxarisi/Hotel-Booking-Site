@@ -117,6 +117,16 @@ main form div.error{
     color: red;
     font-size: 0.8rem;
 }
+main form .registerIfNot{
+    margin-top: 8px;
+}
+main form .registerIfNot a{
+    text-decoration: none;
+    color: black;
+}
+main form .registerIfNot a:hover{
+    color: var(--hover_color);
+}
 
 footer{
     background-color: var(--form_background);

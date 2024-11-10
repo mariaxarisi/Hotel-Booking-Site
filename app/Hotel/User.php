@@ -63,11 +63,12 @@ class User extends BaseService{
     }
 
     //Generate Token
-    public function generateToken($userId)
+    public function generateToken($userId, $csrf = '')
     {
         // Create token payload
         $payload = [
             'user_id' => $userId,
+            'csrf' => $csrf ?: md5(time())
         ];
         $payloadEncoded = base64_encode(json_encode($payload));
         $signature = hash_hmac('sha256', $payloadEncoded, self::TOKEN_KEY);
@@ -76,7 +77,7 @@ class User extends BaseService{
     }
 
     //Verify Token
-    public function getTokenPayload($token)
+    public static function getTokenPayload($token)
     {
         // Get payload and signature
         [$payloadEncoded] = explode('.', $token);
@@ -90,9 +91,25 @@ class User extends BaseService{
         // Get payload
         $payload = $this->getTokenPayload($token);
         $userId = $payload['user_id'];
+        $csrf = $payload['csrf'];
 
         // Generate signature and verify
-        return $this->generateToken($userId) == $token;
+        return $this->generateToken($userId, $csrf) == $token;
+    }
+
+    public static function getCSRF()
+    {
+        $token = $_COOKIE['user_token'];
+
+        // Get payload
+        $payload = self::getTokenPayload($token);
+        
+        return $payload['csrf'];
+    }
+
+    public static function verifyCSRF($csrf)
+    {
+        return $csrf == self::getCSRF();
     }
 }
 

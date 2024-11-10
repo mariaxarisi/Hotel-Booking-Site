@@ -1,3 +1,12 @@
+<?php 
+require __DIR__.'/../boot/boot.php';
+
+use Hotel\User;
+
+if(!empty(User::getCurrentUserId())){
+    header('Location: /project/public/index.php');die;
+}
+?>
 <!DOCTYPE html>
 
 <html>
@@ -37,6 +46,7 @@
                     <input type="password" name="password" id="password" placeholder="Your password">
                 </div>
                 <div class="error password-error">The password should have at least five characters</div>
+                <div class="registerIfNot">Don't have an account? <a href="register.php">Register</a></div>
 
                 <input type="submit" value="LOGIN">
             </form>

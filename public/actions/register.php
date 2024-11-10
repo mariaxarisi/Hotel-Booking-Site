@@ -9,6 +9,12 @@ if(strtolower($_SERVER['REQUEST_METHOD']) != 'post'){
     return;
 }
 
+//Return to home page if there is a logged in user
+if(!empty(User::getCurrentUserId())){
+    header('Location: /project/public/index.php');
+    return;
+}
+
 $user = new User();
 $user->insert($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['email']);
 

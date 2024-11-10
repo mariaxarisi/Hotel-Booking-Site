@@ -10,7 +10,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) != 'post'){
 }
 
 //Return to home page if there is a logged in user
-if(empty(User::getCurrentUserId())){
+if(!empty(User::getCurrentUserId())){
     header('Location: /project/public/index.php');
     return;
 }

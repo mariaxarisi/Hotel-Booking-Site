@@ -98,6 +98,7 @@ if(!$alreadyBooked){
             
                 <form name="favoriteForm" id="favoriteForm" class="favoriteForm" method="post" action="actions/favorite.php">
                     <input type="hidden" name="room_id" value="<?php echo $roomId; ?>">
+                    <input type="hidden" name="csrf" value="<?php echo User::getCSRF(); ?>">
                     <input type="hidden" name="is_favorite" value="<?php echo $isFavorite ? '1' : '0'; ?>">
                     <input type="hidden" name="check_in_date" value="<?php echo $checkIn; ?>">
                     <input type="hidden" name="check_out_date" value="<?php echo $checkOut; ?>">
@@ -132,6 +133,7 @@ if(!$alreadyBooked){
         <?php  } else { ?>
             <form name="bookingForm" method="post" action="actions/book.php">
                 <input type="hidden" name="room_id" value="<?php echo $roomId; ?>">
+                <input type="hidden" name="csrf" value="<?php echo User::getCSRF(); ?>">
                 <input type="hidden" name="check_in_date" value="<?php echo $checkIn; ?>">
                 <input type="hidden" name="check_out_date" value="<?php echo $checkOut; ?>">
                 <div class="button"><button>Book Now</button></div>
@@ -160,7 +162,7 @@ if(!$alreadyBooked){
                                         }
                                     }
                                 ?>
-                                <div><?php echo $review['comment']; ?></div>
+                                <div><?php echo htmlentities($review['comment']); ?></div>
                                 <div class="time">Add time: <?php echo $review['created_time']; ?></div>
                             </li>
                         <?php
@@ -179,6 +181,7 @@ if(!$alreadyBooked){
 
                 <textarea id="review" name="review" placeholder="Review"></textarea>
                 <input type="hidden" name="room_id" value="<?php echo $roomId; ?>">
+                <input type="hidden" name="csrf" value="<?php echo User::getCSRF(); ?>">
                 <input type="hidden" id="starCount" name="starCount" value="0">
                 <input type="hidden" name="check_in_date" value="<?php echo $checkIn; ?>">
                 <input type="hidden" name="check_out_date" value="<?php echo $checkOut; ?>">
