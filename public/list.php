@@ -41,7 +41,7 @@ $cities = $room->getCities();
             <p>Hotels</p>
             <div>
                 <p>
-                    <a href="index.php">
+                    <a href="../index.php">
                         <i class="fa-solid fa-house"></i>Home
                     </a>
                 </p>
@@ -89,11 +89,11 @@ $cities = $room->getCities();
 
                 <div class="range">
                     <div id="rangeMin">0&euro;</div>
-                    <div id="rangeMax">5000&euro;</div>
+                    <div id="rangeMax">1000&euro;</div>
                 </div>
                 <div class="slider">
-                    <input type="range" min="0" max="5000" name="minPrice" value="00" id="slider1">
-                    <input type="range" min="0" max="5000" name="maxPrice" value="5000" id="slider2">
+                    <input type="range" min="0" max="1000" name="minPrice" value="00" id="slider1">
+                    <input type="range" min="0" max="1000" name="maxPrice" value="1000" id="slider2">
                 </div>
 
                 <input type="text" name="check-in" id="check-in" placeholder="Check-in Date" value="<?php echo $checkIn; ?>">

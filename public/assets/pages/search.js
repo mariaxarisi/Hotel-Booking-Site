@@ -8,7 +8,7 @@
 
         //Ajax request
         $.ajax(
-            'http://localhost/project/public/ajax/search_results.php',
+            'http://localhost/public/ajax/search_results.php',
             {
                 type: "GET",
                 dataType: "html",
@@ -22,7 +22,7 @@
             $('.results').append(result);
 
             //Push url state
-            history.pushState({}, '', 'http://localhost/project/public/list.php?' + formData);
+            history.pushState({}, '', 'http://localhost/public/list.php?' + formData);
         });
 
     });

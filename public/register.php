@@ -4,7 +4,7 @@ require __DIR__.'/../boot/boot.php';
 use Hotel\User;
 
 if(!empty(User::getCurrentUserId())){
-    header('Location: /project/public/index.php');die;
+    header('Location: /index.php');die;
 }
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ if(!empty(User::getCurrentUserId())){
         <div class="container">
             <p>Hotels</p>
             <p>
-                <a href="index.php">
+                <a href="../index.php">
                     <i class="fa-solid fa-house"></i>Home
                 </a>
             </p>

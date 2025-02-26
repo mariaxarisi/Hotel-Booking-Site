@@ -9,14 +9,19 @@ class Configuration{
     private static $instance;
 
     private function __construct(){
-        //Load config.json file
-        $filepath = __DIR__.'/../../config/config.json';
-        $fileContent = file_get_contents($filepath);
-        $this->$config = json_decode($fileContent, true); //true makes the array associative
+        // Load configuration from environment variables
+        $this->config = [
+            'database' => [
+                'host' => getenv('DB_HOST'),
+                'dbname' => getenv('DB_NAME'),
+                'username' => getenv('DB_USER'),
+                'password' => getenv('DB_PASSWORD')
+            ]
+        ];
     }
 
     public function getConfig(){
-        return $this->$config;
+        return $this->config;
     }
 
     public static function getInstance(){

@@ -5,7 +5,7 @@ use Hotel\User;
 
 //Return to home page if there is not a logged in user
 if(empty(User::getCurrentUserId())){
-    header('Location: /project/public/index.php');
+    header('Location: /index.php');
     return;
 }
 
@@ -16,6 +16,6 @@ if (isset($_COOKIE['user_token'])) {
 }
 
 //Return to home page
-header('Location: /project/public/index.php');
+header('Location: /index.php');
 
 ?>

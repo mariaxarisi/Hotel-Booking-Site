@@ -1,5 +1,5 @@
 <?php 
-require __DIR__.'/../boot/boot.php';
+require __DIR__.'/boot/boot.php';
 
 use Hotel\Room;
 use Hotel\RoomType;
@@ -20,12 +20,12 @@ $allTypes = $type->getAllTypes();
 <head>
     <title>Home</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="public/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="public/assets/css/index.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
-    <script src="assets/js/index.js"></script>
+    <script src="public/assets/js/index.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,7 @@ $allTypes = $type->getAllTypes();
         </div>
     </header>
     <main>
-        <form action="list.php" method="get">
+        <form action="public/list.php" method="get">
 
             <select name="city" id="city" required>
                 <option value="none" selected>City</option>

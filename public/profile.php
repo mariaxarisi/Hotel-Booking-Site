@@ -12,7 +12,7 @@ $favorite = new Favorite();
 
 $userId = User::getCurrentUserId();
 if(empty($userId)){
-    header('Location: login.php');
+    header('Location: /public/login.php');
 }
 
 //Get all favorites
@@ -40,7 +40,7 @@ $bookings = $booking->getBookings($userId);
             <p>Hotels</p>
             <div>
                 <p>
-                    <a href="index.php">
+                    <a href="../index.php">
                         <i class="fa-solid fa-house"></i>Home
                     </a>
                 </p>

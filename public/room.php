@@ -7,20 +7,22 @@ use Hotel\User;
 use Hotel\Review;
 use Hotel\Booking;
 
+$googleMapsApiKey = getenv('GOOGLE_MAPS_API_KEY');
+
 $room = new Room();
 $favorite = new Favorite();
 
 //Check for room id
 $roomId = $_REQUEST['room_id'];
 if(empty($roomId)){
-    header('Location: index.php');
+    header('Location: /index.php');
     die;
 }
 
 //Load room info
 $roomInfo = $room->get($roomId);
 if(empty($roomInfo)){
-    header('Location: index.php');
+    header('Location: /index.php');
     die;
 }
 
@@ -63,7 +65,7 @@ if(!$alreadyBooked){
             <p>Hotels</p>
             <div>
                 <p>
-                    <a href="index.php">
+                    <a href="../index.php">
                         <i class="fa-solid fa-house"></i>Home
                     </a>
                 </p>
@@ -139,7 +141,7 @@ if(!$alreadyBooked){
                 <div class="button"><button>Book Now</button></div>
             </form>
         <?php } ?>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.0405833807313!2d23.732737374278326!3d37.976182200535206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd4b45322381%3A0xb126665c4705d54b!2sHotel%20Grande%20Bretagne%2C%20a%20Luxury%20Collection%20Hotel%2C%20Athens!5e0!3m2!1sel!2sgr!4v1711826857279!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed/v1/place?key=<?php echo $googleMapsApiKey; ?>&q=<?php echo $roomInfo['location_lat']; ?>,<?php echo $roomInfo['location_long']; ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="line"></div>
         <div class="reviews">
             <p>Reviews</p>
