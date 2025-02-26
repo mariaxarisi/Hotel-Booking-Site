@@ -1,4 +1,4 @@
-# 🏨 Hotel Booking Site
+# Hotel Booking Site
 
 A full-featured hotel booking website that lets users browse and book hotels, add them to their favorites, comment on room pages, and manage their profiles.
 
